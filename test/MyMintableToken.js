@@ -29,13 +29,11 @@ contract('Transaction test', async function(accounts) {
         });
 
         // Transfer excessive amount
-        assert.fail(await instance.transferFrom(fromAccount,
-            toAccount,
-            500000, {
-                from: spendingAccount
-            })).catch(function(error) {
-            assert(error.message.indexOf('revert') >= 0,
-                'cannot transfer unapproved amount');
-        });
+        // This is a bad test passes even if it fails. How do I fix it?
+        try {
+            await instance.transferFrom(fromAccount, toAccount, 20, {from: spendingAccount});
+        } catch (error) {
+            assert(error.message.indexOf('revert') >= 0, 'cannot transfer unapproved ammount');
+        }
     });
 });

@@ -1,0 +1,3 @@
+[submodule "test/lk-test-helpers"]
+	path = test/lk-test-helpers
+	url = https://github.com/levelkdev/lk-test-helpers.git

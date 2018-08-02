@@ -1,4 +1,5 @@
-var MyMintableToken = artifacts.require("MyMintableToken.sol");
+import expectRevert from './lk-test-helpers/src/helpers/expectRevert';
+const MyMintableToken = artifacts.require("MyMintableToken.sol");
 
 contract('Transaction test', async function(accounts) {
     it('should initialize 1000000 tokens to msg.sender', async function() {
@@ -29,11 +30,9 @@ contract('Transaction test', async function(accounts) {
         });
 
         // Transfer excessive amount
-        // This is a bad test passes even if it fails. How do I fix it?
-        try {
-            await instance.transferFrom(fromAccount, toAccount, 20, {from: spendingAccount});
-        } catch (error) {
-            assert(error.message.indexOf('revert') >= 0, 'cannot transfer unapproved ammount');
-        }
+        await expectThrow(instance.transferFrom(fromAccount, toAccount, 20, {
+                from: spendingAccount
+            }),
+            'revert');
     });
 });

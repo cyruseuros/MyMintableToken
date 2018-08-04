@@ -8,7 +8,6 @@ contract MyMintableToken is MintableToken {
   uint8 public constant decimals = 18;
 
   // Arbitrary initial amount to test against
-  uint256 public constant INITIAL_SUPPLY = 1000000;
 
   constructor() public {
     totalSupply_ = INITIAL_SUPPLY;

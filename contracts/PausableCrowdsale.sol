@@ -14,12 +14,8 @@ contract PausableCrowdsale is Crowdsale, Pausable {
   // Returns true if investors ca buy at the moment
   // As compared to bitclave, only replaced constant with view
   // I think openzeppelin renamed validPurchase
-  /* function _preValidatePurchase(address _beneficiary, uint256 _weiAmount) internal { */
-  /*   super._preValidatePurchase(_beneficiary, _weiAmount); */
-  /*   require(!paused); */
-  /* } */
-
-  function validPurchase() internal constant returns(bool) {
-    return super.validPurchase() && !paused;
+  function _preValidatePurchase(address _beneficiary, uint256 _weiAmount) internal {
+    super._preValidatePurchase(_beneficiary, _weiAmount);
+    require(!paused);
   }
 }

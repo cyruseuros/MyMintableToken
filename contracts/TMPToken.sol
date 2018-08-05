@@ -3,7 +3,7 @@ pragma solidity ^0.4.24;
 import "openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/PausableToken.sol";
 
-// Transferable, mintable, pausable token
+// Transferable mintability, mintable, pausable token
 // Multiple mintmaster capabilities
 contract TMPToken is MintableToken, PausableToken{
 

@@ -64,7 +64,7 @@ contract('Transaction test', async function(accounts) {
         let instance = await MyMintableToken.deployed();
         let minterAccount = accounts[0];
 
-        await instance.mint(minterAccount, 10, {from: minterAccount});
+        await instance.mint(accounts[1], 10, {from: minterAccount});
         assert.equal(instance.balanceOf.call(minterAccount), 110, 'supposed to  mint 10 tokens');
     });
 });

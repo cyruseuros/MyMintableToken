@@ -1,5 +1,5 @@
-var MyMintableToken = artifacts.require("./MyMintableToken.sol");
+var TMPToken = artifacts.require("./TMPToken.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(MyMintableToken);
+  deployer.deploy(TMPToken);
 };
